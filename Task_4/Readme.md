@@ -10,8 +10,8 @@ This project delivers a flexible and extensible framework for descriptive statis
 
 To ensure full transparency and reproducibility, the system was developed in **three separate flavors**:
 
-1. **Pure Python** (no third-party libraries)
-2. **Pandas-based** implementation
+1. **Pure Python** (no third-party libraries)  
+2. **Pandas-based** implementation  
 3. **Polars-based** implementation
 
 Each version is capable of:
@@ -36,7 +36,7 @@ bash
 Copy
 Edit
 pip install polars
-(Optional for visualization): matplotlib, seaborn, or plotly
+(Optional for visualization)matplotlib, seaborn, or plotly
 
 Running Each Script
 ⚠️ IMPORTANT: DO NOT upload or include any dataset in the repository!
@@ -76,13 +76,12 @@ Cleanly displays side-by-side tabular results
 ├── polars_stats.py
 ├── README.md
 └── (No datasets included)
-
 🔍 Key Insights & Learnings
 Polars showed significant performance gains with large datasets and JSON unpacking, especially when schema inference was optimized.
 
-Pandas was easiest to use and most familiar — perfect for quick iteration.
+Pandas was the easiest to use and most familiar, making it perfect for quick iteration.
 
-Pure Python reinforced core concepts of iteration, parsing, and aggregation — making it ideal for learning, though less efficient for scale.
+Pure Python reinforces core concepts of iteration, parsing, and aggregation, making it ideal for learning, although less efficient for scaling.
 
 ChatGPT-style LLMs were very helpful in prototyping template logic, but human judgment was crucial for:
 
