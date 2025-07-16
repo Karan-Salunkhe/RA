@@ -70,15 +70,13 @@ Offers grouping options by 1 or 2 columns
 Cleanly displays side-by-side tabular results
 
 📁 Folder Structure
-scss
-Copy
-Edit
 .
 ├── pure_python_stats.py
 ├── pandas_stats.py
 ├── polars_stats.py
 ├── README.md
 └── (No datasets included)
+
 🔍 Key Insights & Learnings
 Polars showed significant performance gains with large datasets and JSON unpacking, especially when schema inference was optimized.
 
