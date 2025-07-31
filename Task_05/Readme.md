@@ -83,7 +83,7 @@ Asking for rankings, summaries, or visual explanations improved the model’s in
 📂 Repository Structure
 
 Task_05_Descriptive_Stats/
-├── prompts_and_responses.md         # All natural language questions + prompts used
-├── chatgpt_vs_script_comparison.csv # Table comparing ChatGPT and script answers
+├── Questions_and_Prompts.md         # All natural language questions + prompts used
+├── chatgpt_vs_Pandas Script Comparison table.md # Table comparing ChatGPT and script answers
 ├── README.md                        # This file
 
