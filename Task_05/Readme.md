@@ -1,89 +1,72 @@
-Task 05: Descriptive Statistics and Large Language Models
+# Task 05: Descriptive Statistics and Large Language Models
 
-📖 Project Overview
+## 📖 Project Overview
 
-This research project explores how well large language models (LLMs) like ChatGPT can interpret and answer natural language questions about structured sports data. The main objective is to evaluate whether LLMs can accurately generate descriptive statistics and insights comparable to script-based validations.
+This research project explores how well large language models (LLMs) like ChatGPT and DeepSeek Chat can interpret and answer natural language questions about structured sports data. The main objective is to evaluate whether LLMs can accurately generate descriptive statistics and insights comparable to script-based validations.
 
-🔢 Dataset Used
+## 🔢 Dataset Used
 
 For this project, I selected the IPL 2025 dataset, which contains detailed performance data on batters and bowlers. It includes fields such as:
 
-Batters: Runs, Strike Rate, Matches, Average, High Score, Balls Faced
-
-Bowlers: Wickets, Overs, Strike Rate, Economy, Bowling Average
+**Batters**: Runs, Strike Rate, Matches, Average, High Score, Balls Faced  
+**Bowlers**: Wickets, Overs, Strike Rate, Economy, Bowling Average  
 
 This dataset was chosen due to its clear structure and balanced representation of both batting and bowling performance across a complete season.
 
-👷 Methodology
+## 👷 Methodology
 
-Step 1: Data Preparation
+### Step 1: Data Preparation
+- The dataset was manually reviewed for consistency and cleaned where necessary
+- Non-numeric fields were verified, and missing/malformed entries were corrected or excluded
 
-The dataset was manually reviewed for consistency and cleaned where necessary.
+### Step 2: Script-Based Validation (Baseline)
+Used a custom Pandas-based statistics script to:
+- Flatten and unpack nested columns
+- Calculate summary statistics (mean, count, min, max, standard deviation)
+- Group and aggregate data (e.g., by team or player)
 
-Non-numeric fields were verified, and missing or malformed entries were either corrected or excluded.
+### Step 3: LLM Querying
+Formulated natural language questions and submitted them to both ChatGPT and DeepSeek Chat:
 
-Step 2: Script-Based Validation (Baseline)
+**Example Questions**:
+1. "Which batter had the highest strike rate among players who scored over 500 runs?"
+2. "Who bowled the most overs in the season?"
+3. "Which young bowler showed the highest potential based on strike rate and wickets?"
+4. "Who would you build a playoff team around?"
 
-I used my existing custom Pandas-based statistics script from Task 4 to:
+**Prompt Template**:  
+"Analyze the IPL 2025 dataset and answer this question precisely [specific question]"
 
-Flatten and unpack nested columns
+### Step 4: Comparison and Analysis
+Created three-way comparisons between:
+1. ChatGPT responses
+2. DeepSeek Chat responses
+3. Script validation outputs
 
-Calculate summary statistics (mean, count, min, max, standard deviation)
+Key comparison metrics:
+- Numeric accuracy (vs script)
+- Contextual interpretation quality
+- Handling of ambiguous queries
 
-Group and aggregate data (e.g., by team or player)
+## 📊 Findings & Observations
 
-Step 3: Querying ChatGPT
+### ✅ What Worked Well
+- Both LLMs handled well-structured questions with high accuracy (>90% match to script)
+- DeepSeek Chat showed slightly better numeric precision (exact decimal matching)
+- ChatGPT provided more verbose contextual explanations
+- Summary-style answers matched script outputs in most cases
 
-I formulated a set of natural language questions related to player performance, team strategy, and comparative metrics. Examples include:
+### ⚠ Challenges
+| Issue | ChatGPT | DeepSeek Chat |
+|-------|---------|---------------|
+| Numeric rounding | Occasionally rounded decimals | Matched script exactly |
+| Assumption-making | More prone to inference | More conservative |
+| Ambiguous queries | Varied by phrasing | Consistent but literal |
 
-"Which batter had the highest strike rate among players who scored over 500 runs?"
+### 💡 Key Insights
+- Adding "answer precisely from the dataset" improved both models' accuracy
+- DeepSeek Chat performed better on direct statistical questions
+- ChatGPT excelled at comparative analysis ("Player X vs Player Y")
+- Both struggled equally with truly subjective questions ("most promising talent")
 
-"Who bowled the most overs in the season?"
-
-"Which young bowler showed the highest potential based on strike rate and wickets?"
-
-*"Who would you build a playoff team around?"
-
-These questions were submitted to ChatGPT, and the model’s answers were saved.
-
-Step 4: Comparison and Analysis
-
-I compared ChatGPT's responses to the outputs of my Pandas script.
-
-A comparison file was created (chatgpt_vs_script_comparison.csv) to show side-by-side results.
-
-Any mismatches were noted and evaluated for possible causes (e.g., ambiguity, lack of context, or incorrect interpretation).
-
-📊 Findings & Observations
-
-✅ What Worked Well
-
-ChatGPT handled well-structured, direct questions with high accuracy.
-
-Summary-style answers (e.g., best player by stat) matched the script outputs in most cases.
-
-ChatGPT could contextualize statistics when prompted properly (e.g., for trade suggestions).
-
-⚠ What Was Challenging
-
-ChatGPT occasionally made assumptions about data or inferred values from partial context.
-
-For ambiguous queries (e.g., "most consistent under pressure"), results varied depending on how the question was framed.
-
-Numeric precision varied slightly from Pandas calculations due to rounding or different default settings.
-
-💡 Prompt Engineering Notes
-
-Using "analyze the dataset and answer precisely" worked well to enforce factual responses.
-
-Specific thresholds ("over 500 runs") and role definitions ("finisher") helped narrow down the correct logic.
-
-Asking for rankings, summaries, or visual explanations improved the model’s interpretability.
-
-📂 Repository Structure
-
-Task_05_Descriptive_Stats/
-├── Questions_and_Prompts.md         # All natural language questions + prompts used
-├── chatgpt_vs_Pandas Script Comparison table.md # Table comparing ChatGPT and script answers
-├── README.md                        # This file
-
+## 📂 Repository Structure
