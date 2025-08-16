@@ -1,4 +1,4 @@
-Prompts Used with ChatGPT
+Prompts Used with ChatGPT and Deepseek
 
 This document lists all natural language questions posed to ChatGPT along with the exact prompts used to extract insights from the IPL 2025 dataset. Responses have been removed for clarity.
 
