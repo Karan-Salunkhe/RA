@@ -22,7 +22,7 @@ Task 06 takes those insights and transforms them into a **deep fake video interv
 | File Name | Description |
 |-----------|-------------|
 | `interview_script.md` | Full Sachin Tendulkar interview script (reporter Qs + Sachin’s answers). |
-| `Task_06_DeepFake_Video.mp4` | Final AI-generated deep fake video interview created in Descript. |
+| `Extended Deep Fake IPL Interview Script_ Tendulkar_Narratives.mp4` | Final AI-generated deep fake video interview created in Descript. |
 | `experiments_log.md` | Logs of all attempted tools, with notes on successes/failures. |
 | `README.md` | Project documentation, objectives, workflow, and reflection. |
 
