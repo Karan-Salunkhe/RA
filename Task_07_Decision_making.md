@@ -256,40 +256,67 @@ Task 7 integrates prior research tasks into a **complete, stakeholder-ready anal
 
 ---
 
-## 📂 Appendices  
+## 📂 Appendices
 
-### Appendix A – Key Task 4 Code Snippets  
+---
+
+### Appendix A – Task 4 Key Code Snippets
 
 ```python
-# Detect JSON-like columns
-def detect_non_flat_columns(df):
-    bad_cols = []
+# CSV Analyzer: Load and Unpack JSON-like Columns
+import pandas as pd
+import ast
+
+def load_and_unpack(file_path):
+    df = pd.read_csv(file_path)
+    unpacked_cols = []
+
     for col in df.columns:
         if df[col].astype(str).str.contains(r'^\s*{.*}\s*$', na=False).any():
-            bad_cols.append(col)
-    return bad_cols
+            try:
+                parsed = df[col].dropna().apply(ast.literal_eval)
+                if parsed.apply(lambda x: isinstance(x, dict)).all():
+                    normalized = pd.json_normalize(parsed)
+                    normalized.columns = [
+                        f"{col}_{sub.replace(' ', '_').replace('.', '_')}" for sub in normalized.columns
+                    ]
+                    df = pd.concat([df.drop(columns=[col]), normalized], axis=1)
+                    unpacked_cols.append(col)
+            except Exception:
+                continue
 
-# Summarize numeric columns
-def display_numeric_summary(df):
-    numeric_df = df.select_dtypes(include='number')
-    desc = numeric_df.describe().transpose()
-    print(desc[['count', 'mean', 'min', 'max', 'std']])
-## 📂 Appendices
+    return df, unpacked_cols
 
 ### Appendix B – Task 5 LLM Outputs vs Script
 
-| Q# | Question | ChatGPT | DeepSeek | Script |
-|----|----------|---------|---------|--------|
+| Q# | Question | ChatGPT Output | DeepSeek Output | Script Output |
+|----|----------|----------------|----------------|---------------|
 | 1 | Highest Strike Rate (>500 runs) | Nicholas Pooran – SR: 196.2, Runs: 524 | Nicholas Pooran – SR: 196.25, Runs: 524 | 196.25 |
 | 2 | Kohli vs Bumrah contributions | Kohli 657 runs, notes on Bumrah’s clutch wickets | Kohli 657 > Bumrah 293.3 | 657 / 293.3 |
-| 3 | Most overs bowled | Siraj – 57 overs (342 balls) | Siraj – 57 overs | 57 |
+| 3 | Most overs bowled | Mohammed Siraj – 57 overs (342 balls) | Mohammed Siraj – 57 overs | 57 |
 | 4 | Team-building under pressure | Pooran + Bumrah | Hardik Pandya | N/A |
 | 5 | Playoff picks | Pooran, SKY, Iyer, Sudharsan, Klaasen; Noor, Bumrah, Hazlewood | Pooran, Gill, Iyer, Klaasen, SKY; Bumrah, Rashid, Noor | N/A |
 | 6 | Young bowler potential | Noor Ahmad – 24 wickets, SR 12.5 | Noor Ahmad – 24 wickets, SR 12.5 | 24 / 12.5 |
 
+> **Summary:** This table presents all LLM-generated answers (ChatGPT and DeepSeek) versus the Pandas script validation. Numeric outputs are verified; interpretive answers are noted as N/A where scripts cannot provide direct validation. This allows stakeholders to quickly see where human judgment is required.
+
 ---
 
-### Appendix C – Full Task 6 Interview Script
+### Appendix C – Task 5 Numeric Summary Table
+
+| Metric | Player | Value |
+|--------|--------|-------|
+| Highest Strike Rate (>500 runs) | Nicholas Pooran | 196.25 |
+| Total Runs | Kohli | 657 |
+| Bowler Contribution Score | Bumrah | 293.3 |
+| Most Overs Bowled | Mohammed Siraj | 57 |
+| Young Bowler Potential | Noor Ahmad | 24 wickets, SR 12.5 |
+
+> **Summary:** This table highlights the verified numeric insights from Task 5, making it easier for stakeholders to interpret performance statistics quickly and base decisions on solid data.
+
+---
+
+### Appendix D – Task 6 Full Deep Fake Interview Script
 
 **[Reporter]:** Welcome, Sachin. Let’s discuss standout performances in IPL 2025.  
 
@@ -301,42 +328,89 @@ def display_numeric_summary(df):
 
 **[Reporter]:** Which young bowler impressed the most?  
 
-**[Sachin Tendulkar]:** Noor Ahmad took 24 wickets with a strike rate of 12.5 – a very promising talent.  
+**[Sachin Tendulkar]:** Noor Ahmad took 24 wickets with a strike rate of 12.5 – an up-and-coming talent.  
 
 **[Reporter]:** Who would you build a playoff team around?  
 
 **[Sachin Tendulkar]:** Pooran and Bumrah are core players; complementary all-rounders would round out the squad.  
 
-**[Reporter]:** Thank you, Sachin. Any closing thoughts?  
+**[Reporter]:** How would you manage player workloads during playoffs?  
 
-**[Sachin Tendulkar]:** Consistency and adaptability are key. Teams that combine statistical insight with smart strategy will succeed.  
+**[Sachin Tendulkar]:** Rotating players strategically ensures peak performance, especially for high-strike players and key bowlers.  
 
-*(Full extended script includes all additional Q&A segments from Task 6.)*
+**[Reporter]:** Thank you, Sachin. Do you have any closing thoughts?  
 
----
+**[Sachin Tendulkar]:** Consistency, adaptability, and smart strategy are key. Teams combining statistical insight with on-field decisions succeed.
 
-### Task 5 – Numeric Insights Summary
-
-| Metric | Player | Value |
-|--------|--------|-------|
-| Highest Strike Rate (>500 runs) | Nicholas Pooran | 196.25 |
-| Total Runs | Kohli | 657 |
-| Bowler Contribution Score | Bumrah | 293.3 |
-| Most Overs Bowled | Mohammed Siraj | 57 |
-| Young Bowler Potential | Noor Ahmad | 24 wickets, SR 12.5 |
-
-> This summary table provides a **visual snapshot** of numeric insights validated via Pandas script, highlighting key performers and actionable metrics.
+> *(The full extended script includes all additional Q&A segments from Task 6, capturing the complete deep fake narrative generated using Descript.)*
 
 ---
 
-## 📊 Final Conclusion
+## 🏁 Final Conclusion
 
-From raw CSV parsing to AI validation and narrative storytelling, this project demonstrates a **complete analytics lifecycle**:
+This research project demonstrates a **complete analytics lifecycle**, integrating data extraction, AI-assisted insights, validation, and narrative reporting for stakeholder decision-making. Across Tasks 4–7, the workflow ensured **accuracy, reproducibility, ethical awareness, and actionable insights**.
 
-- **Task 4 →** Structured data foundation  
-- **Task 5 →** Validation of LLM insights  
-- **Task 6 →** Stakeholder-ready narrative  
-- **Task 7 →** Integration, reflection, and ethical documentation  
+### Task Integration Summary
 
-> Analytics is most impactful when **accurate, validated, and communicated clearly**.  
+1. **Task 4 – CSV Analysis & Data Preparation**
+   - Developed a Python-based CSV analyzer to load, unpack, and summarize datasets.
+   - Handled complex JSON-like columns and preserved all numeric and categorical data.
+   - Generated side-by-side summaries and optional aggregation for better data interpretation.
+   - **Rationale:** This task established a **clean, structured foundation** for all subsequent LLM analysis and stakeholder reporting.
+
+2. **Task 5 – LLM Validation**
+   - Generated narratives using ChatGPT and DeepSeek based on the IPL 2025 cricket dataset.
+   - Validated all numeric outputs against Pandas scripts, ensuring **accuracy and reproducibility**.
+   - Quantified uncertainty where possible and flagged interpretive or judgment-based answers for human oversight.
+   - **Rationale:** Validating LLM outputs with script-verified data ensures **trustworthiness** for actionable recommendations.
+
+3. **Task 6 – Deep Fake Narrative**
+   - Converted validated statistical insights into a **stakeholder-facing media interview** using Descript.
+   - Created realistic dialogue between a reporter and Sachin Tendulkar, integrating numeric insights and narrative context.
+   - Documented the full workflow, including tool selection, challenges, and final execution.
+   - **Rationale:** This task demonstrates how raw data can be **communicated effectively** to stakeholders in an engaging, interpretable format.
+
+4. **Task 7 – Ethical, Reproducible Stakeholder Report**
+   - Compiled all prior insights into a structured decision report emphasizing:
+     - **Stakeholder Context:** Cricket team coaches and management, high-stakes performance decisions.
+     - **Data Provenance:** IPL 2025 dataset; processed and verified via Pandas; all numeric data validated; privacy and ethical considerations observed.
+     - **Recommendations Tiered by Risk:** Operational (low-risk), Investigatory (medium-risk), High-stakes (high-risk, requires review).
+     - **Ethical & Legal Reflection:** Highlighted fairness, potential bias in player selection, transparency of LLM-assisted analysis, and reproducibility of results.
+     - **Documentation:** All prompts, outputs, code snippets, and validation steps included in appendices for full auditability.
+   - **Rationale:** Ensures decisions are **evidence-based, ethically sound, and reproducible**.
+
+### Key Insights & Stakeholder Takeaways
+
+- **Validated Numeric Metrics:**
+  - Highest strike rate (>500 runs): Nicholas Pooran, 196.25
+  - Total runs leader: Kohli, 657
+  - Most overs bowled: Mohammed Siraj, 57
+  - Young bowler potential: Noor Ahmad, 24 wickets, SR 12.5
+
+- **Strategic Recommendations:**
+  - **Operational (Low Risk):** Provide targeted coaching to Pooran and Noor Ahmad; monitor workload distribution during playoffs.
+  - **Investigatory (Medium Risk):** Conduct controlled performance trials to test player combinations under high-pressure scenarios.
+  - **High-Stakes:** Major team restructuring or player acquisition decisions should be reviewed by senior management and legal advisors, considering ethical fairness and bias mitigation.
+
+- **Ethical Considerations:** 
+  - Player evaluation incorporates both quantitative performance and qualitative judgment.
+  - LLM-assisted recommendations are clearly labeled; all numeric insights verified via script.
+  - Avoided automated decision-making for high-stakes personnel actions.
+
+- **Reproducibility & Auditability:**
+  - Every step documented: code, LLM prompts, raw outputs, numeric validations, and decision rationale.
+  - Enables third-party auditors or new team members to reproduce analysis and validate recommendations independently.
+
+### Overall Reflection
+
+This multi-task research demonstrates **best practices in integrating AI-generated insights with human oversight** for actionable decision-making:
+
+1. **Accuracy:** LLM outputs rigorously validated against numeric scripts.
+2. **Transparency:** Every prompt, output, and modification is documented.
+3. **Stakeholder Utility:** Data transformed into actionable, understandable, and ethical recommendations.
+4. **Ethics & Fairness:** Bias checks, fairness considerations, and high-risk decision protocols observed.
+5. **Reproducibility:** The Entire workflow can be audited or replicated by a third party.
+
+> **Conclusion Statement:** By combining data analytics, LLM insights, and ethical decision-making frameworks, this project provides a **robust, reproducible, and stakeholder-ready report** that supports informed, fair, and transparent cricket team management decisions.
+
 
