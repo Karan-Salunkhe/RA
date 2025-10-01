@@ -124,30 +124,135 @@ Task 6 produced a **data-driven, human-friendly narrative**, showing practical t
 
 ---
 
-## 🔹 Task 7 – Integration and Final Reflection  
+## 🔹 Task 7 – Integration and Final Reflection
 
-### Strengths Across Tasks  
-- Task 4 → Technical foundation for analysis  
-- Task 5 → LLM validation against numeric data  
-- Task 6 → Narrative and stakeholder communication  
+### Objective
+Task 7 focuses on **transforming validated LLM outputs and prior analyses into a stakeholder-facing report** while documenting the workflow, reflecting on methodology, and considering ethical implications. The primary goal is to produce actionable recommendations for decision-makers (e.g., cricket coaches or team directors) based on IPL 2025 dataset insights, while emphasizing:
 
-### Challenges  
-- LLM interpretive divergence  
-- Limited free tools for AI media generation  
-- Balancing numeric rigor with narrative clarity  
+- **Reliability and reproducibility** of analysis  
+- **Ethical and fairness considerations** in recommendations  
+- **Transparency** of LLM-assisted outputs  
 
-### Lessons Learned  
-1. Validation is critical  
-2. Narratives enhance stakeholder comprehension  
-3. Tool choice impacts workflow efficiency  
+---
 
-### Practical Applications  
-- Sports coaching and decision-making  
-- Media content generation  
-- Academic demonstration of analytics workflow  
+### Stakeholder & Decision Context
+- **Stakeholders:** IPL team coaches, club directors, and performance analysts  
+- **Decision Question:** Which players should the team prioritize for playoffs, which young talent to nurture, and how to strategize under pressure scenarios?  
+- **Risk Levels:**  
+  - **Low risk:** Operational recommendations such as minor lineup adjustments based on validated statistics.  
+  - **Medium risk:** Investigatory actions like monitoring young bowlers or conducting controlled practice sessions.  
+  - **High risk:** High-stakes decisions involving personnel changes or team restructuring.
 
-### Summary of Task 7  
-End-to-end analytics pipeline from **raw data → AI insights → validated narrative → stakeholder-ready outputs** is achievable and reproducible.  
+By defining the decision context, the report ensures **recommendations are actionable, ethically sound, and aligned with stakeholders’ risk tolerance**.
+
+---
+
+### Data Provenance & Scope
+- **Dataset:** IPL 2025 season statistics, including runs, strike rates, wickets, and overs.  
+- **Source:** Publicly available cricket match records, scraped and processed locally.  
+- **Collection:** Data collected using scripts (Task 4), validated for numeric accuracy via Pandas.  
+- **Privacy Considerations:** Dataset contains only professional athlete performance statistics; no sensitive personal information included.  
+- **Limitations:** Some interpretive questions (e.g., team-building under pressure) cannot be fully validated numerically. Observed differences between ChatGPT and DeepSeek responses highlight the need for **human validation**.
+
+---
+
+### Recreating & Validating Descriptive Results
+- **Task 4 CSV Analyzer:** Unpacked nested data, calculated numeric summaries, and optionally aggregated metrics.  
+- **Task 5 LLM Validation:** Compared ChatGPT and DeepSeek outputs against Pandas script results for Q1–Q6.  
+- **Sanity Checks:**  
+  - Verified numeric outputs matched script-calculated values.  
+  - Checked for missing values, outliers, and inconsistent entries.  
+  - Observed that LLM interpretations diverged for qualitative questions (team-building and playoff picks).
+
+**Summary:** This step ensures **all numeric claims are reproducible** and the dataset is trustworthy for deriving recommendations.
+
+---
+
+### LLM Prompting & Transcript Capture
+- **Prompts:** Natural language questions crafted around player statistics, performance under pressure, and strategic choices.  
+- **Transcript Storage:** Full ChatGPT and DeepSeek outputs saved.  
+- **Annotated Edits:** LLM outputs were reviewed; numeric data cross-verified, interpretive answers annotated for clarity.  
+
+**Rationale:** Maintaining a transcript and annotation allows **future auditors to verify all LLM-assisted claims**, improving transparency.
+
+---
+
+### Quantifying Uncertainty
+- Bootstrap estimates computed for strike rate distributions.  
+- Confidence intervals calculated for average runs per batter to assess variability.  
+- Observed that players like Nicholas Pooran and Noor Ahmad consistently performed in top percentiles, providing **moderate-to-high confidence** for stakeholder recommendations.
+
+**Summary:** Quantifying uncertainty allows **risk-aware decisions**—stakeholders know which insights are robust versus subject to variability.
+
+---
+
+### Sanity Checks & Domain Validation
+- Compared historical IPL data for consistency.  
+- Checked batting averages and strike rates against official records.  
+- Verified that LLM outputs did not hallucinate nonexistent player statistics.  
+
+**Result:** Ensured **domain accuracy** and mitigated risk of false recommendations.
+
+---
+
+### Bias & Fairness Checks
+- Evaluated under-representation of young bowlers versus experienced bowlers.  
+- Checked that recommendations did not disproportionately favor certain player roles without statistical justification.  
+
+**Outcome:** Bias minimized by grounding recommendations in numeric performance, ensuring fairness in team selection guidance.
+
+---
+
+### Robustness & Sensitivity
+- Perturbation Tests: Removed top-performing players and re-ran aggregated statistics.  
+- Observed that playoff recommendations largely aligned, indicating **robustness** of analysis.  
+- Sensitivity Analysis: Adjusted strike rate thresholds to examine impact on player ranking. Results remained consistent, confirming reliability.
+
+---
+
+### Tiered Recommendations
+
+**Operational (Low Risk)**
+- Provide targeted coaching to Nicholas Pooran for high-pressure situations (based on top strike rate and runs consistency).  
+- Monitor bowling workload of Mohammed Siraj to optimize performance during playoffs.  
+
+**Investigatory (Medium Risk)**
+- Conduct controlled training for Noor Ahmad to evaluate long-term potential and skill development.  
+- Collect additional performance metrics for underrepresented young bowlers to refine selection decisions.
+
+**High-Stakes (High Risk)**
+- Consider strategic adjustments to team composition (e.g., substituting players in key matches) only after HR and coaching review.  
+- Avoid relying solely on LLM interpretive suggestions for player selection.
+
+---
+
+### Ethical & Legal Considerations
+- Recommendations **grounded in verified statistics** to avoid unjustified favoritism.  
+- Decisions communicated transparently to team management to prevent misinterpretation of LLM-generated narratives.  
+- No personal or sensitive data used, adhering to **data privacy standards**.  
+- Acknowledged that **LLM outputs are advisory** and must not replace human judgment.
+
+---
+
+### Next Steps & Validation Plan
+- Continue tracking player performance in upcoming matches and update the dataset for iterative analysis.  
+- Periodically review LLM predictions versus real-world outcomes to evaluate **predictive validity**.  
+- Maintain a version-controlled repository of scripts, prompts, and outputs for reproducibility.  
+
+**Summary:** This plan ensures **continuous improvement and auditability** of decision-making recommendations.
+
+---
+
+### Summary of Task 7
+Task 7 integrates prior research tasks into a **complete, stakeholder-ready analytics pipeline**:
+
+- Verified dataset quality (Task 4)  
+- Validated LLM insights (Task 5)  
+- Generated narrative media representation (Task 6)  
+- Documented process, uncertainty, and ethical considerations for **transparent, reproducible, and actionable decision-making**  
+
+> Task 7 demonstrates a **full cycle from data ingestion to validated insights to ethically grounded recommendations**, suitable for professional cricket team decision-makers.
+
 
 ---
 
