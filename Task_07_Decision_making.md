@@ -262,7 +262,6 @@ Task 7 integrates prior research tasks into a **complete, stakeholder-ready anal
 
 ### Appendix A – Task 4 Key Code Snippets
 ---
-python
 # CSV Analyzer: Load and Unpack JSON-like Columns
 import pandas as pd
 import ast
