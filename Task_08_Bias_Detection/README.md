@@ -1,109 +1,61 @@
-# Task_08_Bias_Detection
+# 🧠 Task 08 — Bias Detection in LLM Data Narratives
 
-Bias detection in LLM-generated data narratives using an anonymized sports dataset (IPL 2025).  
-This project tests whether the **same data** produces **different narratives** when prompts are framed differently (e.g., positive vs negative wording, demographic mentions, hypothesis priming).
+### 📘 Overview
+This task investigates whether **Large Language Models (LLMs)** show systematic bias when analyzing identical datasets under different prompt framings.  
+It extends prior Syracuse OPT Research work (Tasks 4–7) on the IPL 2025 Cricket Dataset.
 
----
-
-## Objectives
-- Design a **controlled experiment** to detect framing, demographic, confirmation, and selection biases in LLM outputs.
-- Use a **constant stats block** and **minimally different prompts** to isolate each bias.
-- Collect responses from **multiple LLMs**, sample each prompt **3–5 times**, and **log** model, version, timestamp, prompt, and response.
-- Validate claims against a **ground-truth** baseline computed from the dataset.
-- Keep the repo **privacy-safe** (no PII, no source data committed).
+### 🎯 Objective
+To design a controlled experiment that detects framing, demographic, and confirmation biases in LLM-generated data narratives while maintaining full reproducibility and ethical transparency.
 
 ---
 
-## Ethics & Data Handling
-- **No PII** or real names; use *Player A/B/C* only.
-- **Do not commit datasets**. Source files live locally in `data/` (gitignored).
-- Commit only derived artifacts that are safe (e.g., `analysis/ground_truth.csv`, charts, structured logs without sensitive content).
+### ✅ Work Completed (Weeks 1–2)
+| Stage | Description | Key Outputs |
+|--------|--------------|-------------|
+| **Data Preparation** | Anonymized IPL 2025 statistics and computed validated metrics (runs, strike rate, wickets, overs). | `analysis/ground_truth.csv` |
+| **Prompt Design** | Built five framing conditions — neutral, positive, negative, demographic, confirmation — to test hypotheses H0–H3. | `prompts/prompt_variations.csv` |
+| **LLM Data Collection** | Queried Gemini, ChatGPT, and Claude using each prompt; stored responses locally. | `results/raw/*.txt` *(git-ignored)* |
+| **Validation Setup** | Consolidated outputs and cross-checked each response against numeric ground truth. | `analysis/claims_validation.csv` |
+| **Documentation** | Created reproducible Python scripts, .gitignore, and RMarkdown report. | `scripts/*.py`, `README.Rmd` |
 
 ---
 
-## Repository Structure
-
-```bash
+### 🧪 Repository Structure
 Task_08_Bias_Detection/
-├─ scripts/
-│ ├─ sanitize_players.py # anonymize names → data/*_anon.csv (local)
-│ ├─ ground_truth.py # compute objective baselines → analysis/ground_truth.csv
-│ ├─ experiment_design.py # build prompt_variations.csv from Jinja templates
-│ ├─ run_experiment.py # consolidate raw responses → results/llm_outputs_structured.csv
-│ ├─ analyze_bias.py # quick sentiment + simple pivots (Weeks 1–2 sanity checks)
-│ └─ validate_claims.py # starter numeric checks vs ground truth
-├─ prompts/
-│ ├─ base_stats.txt
-│ ├─ neutral.j2
-│ ├─ positive.j2
-│ ├─ negative.j2
-│ ├─ demographic.j2
-│ └─ prompt_variations.csv # generated
-├─ results/
-│ ├─ raw/ # raw LLM outputs (txt), not committed
-│ └─ llm_outputs_structured.csv # consolidated, safe to commit
-├─ analysis/
-│ ├─ ground_truth.csv
-│ ├─ sentiment_summary.csv
-│ └─ charts/
-├─ docs/
-│ └─ hypotheses.md
-├─ data/ # local only, not committed
-├─ .env # API keys if used (not committed)
-├─ .gitignore
-├─ requirements.txt
-├─ REPORT.md
-└─ README.md
-```
+├── analysis/ # ground truth + validation results
+├── prompts/ # all generated prompt variations
+├── results/ # structured outputs (raw folder git-ignored)
+├── scripts/ # Python scripts for each workflow stage
+├── docs/ # hypotheses and planning notes
+└── README.Rmd # full reproducible report
 
-## How to Reproduce (Weeks 1–2)
+yaml
+Copy code
 
-> **Pre-req:** Python 3.10+, `pip`, and a virtual environment (recommended).
+---
 
-1. **Create & activate venv, install requirements**
-   ```bash
-   python -m venv .venv
-   # Windows: .\.venv\Scripts\activate
-   # macOS/Linux: source .venv/bin/activate
-   pip install -r requirements.txt
+### 🧩 Current Focus (Weeks 3–4)
+- Quantify bias patterns using sentiment and keyword analysis.  
+- Compare LLM behavior across models (Gemini vs ChatGPT vs Claude).  
+- Draft `REPORT.md` with visuals, findings, and mitigation strategies.  
+- Submit final report and Qualtrics check-ins by **Nov 15 2025**.
 
-2. **Place source CSVs locally (not in git)**
+---
 
-Put ipl_batting.csv and ipl_bowling.csv in data/.
+### ⚙️ Tools & Environment
+- **Python 3.12**, `pandas`, `pathlib`, `json`, `csv`  
+- **R Markdown** for documentation & analysis  
+- **LLMs:** ChatGPT, Claude, Gemini  
+- **Git + GitHub** for version control  
 
-3. **Anonymize data (local only)**
+---
 
-```bash
-python scripts/sanitize_players.py
-```
-```bash
-```
-4. **Compute ground truth baseline**
+### 🔒 Ethics & Compliance
+All data are synthetic and anonymized.  
+No PII is stored or published.  
+Raw LLM outputs remain local (`results/raw/` excluded via `.gitignore`).
 
-```bash
-python scripts/ground_truth.py
-```
-5. **Generate prompt variations**
-```bash
-python scripts/experiment_design.py
-```
-Output: prompts/prompt_variations.csv
+---
 
-6. **Collect LLM responses**
-    
-Easiest path (manual UI): for each prompt condition, copy/paste into 2+ models (e.g., GPT-4, Claude), 3–5 runs each. Save texts under:
-
-```bash
-results/raw/gpt4_neutral_run1.txt
-results/raw/gpt4_neutral_run2.txt
-...
-results/raw/claude_positive_run1.txt
-``` 
-
-Consolidate to structured CSV:
-```bash
-python scripts/run_experiment.py
-```
-Output: results/llm_outputs_structured.csv
-
-
+**Author:** [Karan C. Salunkhe](https://www.linkedin.com/in/karan-c-salunkhe/)  
+**Faculty Advisor:** Jon Strome — [jrstrome@syr.edu](mailto:jrstrome@syr.edu)
