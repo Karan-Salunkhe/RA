@@ -1,0 +1,6 @@
+prompt_id,condition,model,run,mentioned_players,mentioned_players_count,total_ground_truth_numeric_hits,any_player_supported_by_numbers,numbers_in_text_count,precision_like,per_player_hits
+confirmation_v1,confirmation,gemini,1,"Player DC, Player DK",2,4,TRUE,8,0.5,Player DC:2; Player DK:2
+demographic_v1,demographic,gemini,1,"Player DK, Player DC, Player X",3,4,TRUE,8,0.5,Player DK:2; Player DC:2; Player X:0
+negative_v1,negative,gemini,1,"Player DK, Player DC",2,4,TRUE,5,0.8,Player DK:2; Player DC:2
+neutral_v1,neutral,gemini,1,"Player DK, Player DC",2,5,TRUE,6,0.833,Player DK:3; Player DC:2
+positive_v1,positive,gemini,1,"Player DK, Player DC",2,5,TRUE,7,0.714,Player DK:3; Player DC:2

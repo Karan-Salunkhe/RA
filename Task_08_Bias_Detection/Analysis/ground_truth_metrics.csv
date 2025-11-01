@@ -1,0 +1,14 @@
+metric,player,runs,strike_rate,overs_ob,balls,wickets,bowl_strike_rate
+highest_sr_over_500_runs,Player DC,524.0,196.25,,,,
+most_overs,Player DK,,,59.0,354.0,,
+young_bowler_potential,Player DK,,,,,25.0,14.16
+top_runs_rank_1,Player EM,759.0,,,,,
+top_runs_rank_2,Player FG,717.0,,,,,
+top_runs_rank_3,Player FX,657.0,,,,,
+top_runs_rank_4,Player FC,650.0,,,,,
+top_runs_rank_5,Player CL,627.0,,,,,
+top_wickets_rank_1,Player DK,,,,,25.0,
+top_wickets_rank_2,Player DF,,,,,24.0,
+top_wickets_rank_3,Player BH,,,,,22.0,
+top_wickets_rank_4,Player FL,,,,,22.0,
+top_wickets_rank_5,Player Q,,,,,21.0,
