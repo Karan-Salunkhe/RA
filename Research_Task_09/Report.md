@@ -1,17 +1,4 @@
----
-title: "From Violation to Repair: Evaluating Housing Safety Enforcement Outcomes in Syracuse"
-author: ""
-date: ""
-output:
-  html_document:
-    toc: true
-    toc_depth: 2
-    number_sections: true
----
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
-```
 
 # Project Summary
 
