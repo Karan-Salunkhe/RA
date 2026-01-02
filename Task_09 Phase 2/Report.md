@@ -1,8 +1,7 @@
 ---
-title: "Phase 2 Report: Housing Safety Enforcement Data Exploration"
-author: "Karan C. Salunkhe"
-date: "January 1, 2026"
-output: html_document
+Title: "Phase 2 Report: Housing Safety Enforcement Data Exploration"
+Author: "Karan C. Salunkhe"
+Date: "January 1, 2026"
 ---
 
 # Project Title  
@@ -62,7 +61,9 @@ All personally identifiable information (Owner names, Inspector IDs) was removed
 
 ## 3. Exploratory Data Analysis (Visualizations)
 
-### 3.1 Top 10 Violation Types  
+### 3.1 Top 10 Violation Types
+<img width="1000" height="600" alt="Top 10 Violation types in SYR" src="https://github.com/user-attachments/assets/21853b8c-7d2f-43a9-899c-75c7bdf07e0a" />
+
 **Interpretation:**  
 Property Maintenance (Internal) and Heat Supply issues dominate the enforcement docket, highlighting critical public health concerns.
 
