@@ -67,39 +67,57 @@ All personally identifiable information (Owner names, Inspector IDs) was removed
 **Interpretation:**  
 Property Maintenance (Internal) and Heat Supply issues dominate the enforcement docket, highlighting critical public health concerns.
 
-### 3.2 Seasonal Distribution of Violations  
+### 3.2 Seasonal Distribution of Violations 
+<img width="1000" height="600" alt="Monthly Distribution of code violations" src="https://github.com/user-attachments/assets/8a8dff0e-f729-47ba-94c7-dfda07a61cff" />
+
 **Interpretation:**  
 Violation reports spike in winter months, likely driven by heating failures and emergency interior inspections.
 
-### 3.3 Proportion of Open vs. Closed Violations  
+### 3.3 Proportion of Open vs. Closed Violations
+<img width="800" height="800" alt="Pie chart open vs closed violations" src="https://github.com/user-attachments/assets/882bf2aa-7d2b-4a60-8693-9d6f991d5a4e" />
+
 **Interpretation:**  
 Although most cases are resolved, nearly **1 in 5 violations remains Open**, representing a substantial backlog.
 
-### 3.4 Unfit Properties by Zip Code  
+### 3.4 Unfit Properties by Zip Code 
+<img width="1000" height="600" alt="Unfit prop count by zip code" src="https://github.com/user-attachments/assets/e14e3103-d9ab-4304-bcd9-0eb19cba8d3c" />
+
 **Interpretation:**  
 High-severity enforcement is concentrated in specific zip codes (**13204, 13205**), identifying priority zones for Phase 3 resource allocation.
 
 ### 3.5 Top 10 Building Permit Types  
+<img width="1000" height="600" alt="Top 10 building permit types" src="https://github.com/user-attachments/assets/8c7a6e18-a877-432b-8b6f-2cf3d2b3e259" />
+
 **Interpretation:**  
 "Res. Remodel" and "Sidewalk Replace" dominate, suggesting remediation is primarily focused on structural and exterior maintenance.
 
-### 3.6 Neighborhood Violation Volume (Top 15)  
+### 3.6 Neighborhood Violation Volume (Top 15) 
+<img width="1200" height="600" alt="Top 15 neighbourhoods by violation volume" src="https://github.com/user-attachments/assets/8a6e764a-57f4-46da-b498-a636f8c4d4b6" />
+
 **Interpretation:**  
 **Northside** and **Near Westside** exhibit the highest enforcement volumes, warranting deeper analysis of owner occupancy patterns.
 
 ### 3.7 Violation Status Heatmap by Top Neighborhoods  
+<img width="1200" height="600" alt="Heatmap Violation status of hood" src="https://github.com/user-attachments/assets/8c1f6e9e-559a-48e4-ae52-2a7594ab11f9" />
+
 **Interpretation:**  
 Northside not only has the most violations, but also the highest absolute number of **Open** cases.
 
 ### 3.8 Yearly Building Permit Trends  
+<img width="1000" height="600" alt="Yearly building permit issuance (2011- 2025)" src="https://github.com/user-attachments/assets/1333892e-65c5-4135-86cf-fe522711376f" />
+
 **Interpretation:**  
 Permit activity remained stable with slight post-2020 recovery, reflecting consistent citywide maintenance investment.
 
 ### 3.9 Distribution of Required Compliance Windows  
+<img width="1000" height="600" alt="Distibution of required complaince windows (Days)" src="https://github.com/user-attachments/assets/52998320-ad07-412e-ae7c-ef39939e2b99" />
+
 **Interpretation:**  
 Most owners receive **30–60 days** to comply, yet the **895-day median** to Unfit designation indicates major enforcement delay.
 
 ### 3.10 Common Required Corrective Actions  
+<img width="1000" height="600" alt="Most common required corrective actions for unifit props" src="https://github.com/user-attachments/assets/8345628f-58ca-4219-9c98-beae93d11baf" />
+
 **Interpretation:**  
 "Remove Unfit Violation" and "Supply Power" are the most frequent orders, revealing utility loss as a leading driver of uninhabitable conditions.
 
