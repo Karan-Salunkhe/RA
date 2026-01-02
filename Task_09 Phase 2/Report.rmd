@@ -52,7 +52,7 @@ All personally identifiable information (Owner names, Inspector IDs) was removed
 ### Housing Enforcement Health *(N = 137,663)*
 
 | Metric | Value |
-|------|------|
+|--------|-------|
 | Median Time to Unfit Designation | **895 days** from initial violation |
 | Median Time to Repair Permit | **1,153 days** from "Unfit" status |
 | Primary Backlog Area | **Northside** (2,859 unresolved violations) |
@@ -137,5 +137,3 @@ Review of the **Corrective Action** field confirmed that many requirements invol
 **Bias Mitigation**
 
 To prevent neighborhood bias, all violation volumes were normalized against total property counts per neighborhood, ensuring analysis reflects **relative density**, not raw population size.
-
----
