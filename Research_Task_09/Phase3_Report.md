@@ -2,7 +2,7 @@
 
 ## Dashboard Screenshot
 
-<img src="file:///C:/Users/Karan/OneDrive/Pictures/RA/Dashboard.png" width="100%">
+<img src="C:/Users/Karan/OneDrive/Desktop/RA/Dashboard.png" width="100%">
 
 
 
