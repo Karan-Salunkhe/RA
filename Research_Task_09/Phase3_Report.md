@@ -2,7 +2,8 @@
 
 ## Dashboard Screenshot
 
-![Syracuse Housing Safety Tracker Dashboard](images/Dashboard.png)
+<img src="file:///C:/Users/Karan/OneDrive/Pictures/RA/Dashboard.png" width="100%">
+
 
 
 *Figure 1: Interactive dashboard visualizing housing safety violations, geospatial hotspots, and AI-generated neighborhood insights.*
