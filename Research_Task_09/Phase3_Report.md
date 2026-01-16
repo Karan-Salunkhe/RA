@@ -2,7 +2,8 @@
 
 ## Dashboard Screenshot
 
-<img src="C:/Users/Karan/OneDrive/Desktop/RA/Dashboard.png" width="100%">
+<img width="809" height="522" alt="Dashboard" src="https://github.com/user-attachments/assets/d941218f-dcb6-4b40-a28f-a8ce4a0b659f" />
+
 
 
 
